@@ -1,67 +1,57 @@
-// =========================================
-// АЛІҐАТОР — Website Script 2026
-// =========================================
+// =============================================
+// АЛІҐАТОР — Script 2026
+// No external dependencies
+// =============================================
 
-/* ---------- HEADER SCROLL ---------- */
+/* ---- HEADER SCROLL ---- */
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
+  header.classList.toggle('scrolled', window.scrollY > 40);
   updateFloatCta();
-});
+}, { passive: true });
 
-/* ---------- MOBILE MENU ---------- */
+/* ---- MOBILE MENU ---- */
 function toggleMenu() {
   const nav    = document.getElementById('nav');
   const burger = document.getElementById('burger');
-  nav.classList.toggle('open');
-  burger.classList.toggle('active');
+  const open   = nav.classList.toggle('open');
+  burger.style.opacity = open ? '.7' : '1';
 }
-
-// Close menu on nav link click
 document.querySelectorAll('.nav__link').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById('nav').classList.remove('open');
-    document.getElementById('burger').classList.remove('active');
   });
 });
 
-/* ---------- FLOAT CTA ---------- */
+/* ---- FLOAT CTA ---- */
 const floatCta = document.getElementById('floatCta');
 function updateFloatCta() {
-  if (window.scrollY > 300) {
-    floatCta.classList.add('visible');
-  } else {
-    floatCta.classList.remove('visible');
-  }
+  floatCta.classList.toggle('visible', window.scrollY > 300);
 }
 
-/* ---------- BOOKING MODAL ---------- */
+/* ---- BOOKING MODAL ---- */
 const modal = document.getElementById('bookingModal');
 
 function openBooking(service) {
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  // Set min date to today
+  // Reset
+  document.getElementById('bookingForm').style.display  = 'flex';
+  document.getElementById('bookingSuccess').style.display = 'none';
+
+  // Date: today minimum
   const today = new Date().toISOString().split('T')[0];
-  document.getElementById('bookDate').min = today;
-  document.getElementById('bookDate').value = today;
-  // Pre-select service if provided
+  const dateInput = document.getElementById('bookDate');
+  dateInput.min   = today;
+  if (!dateInput.value) dateInput.value = today;
+
+  // Pre-select service
   if (service) {
-    const opts = document.querySelectorAll('.service-opt');
-    opts.forEach(opt => {
-      opt.classList.remove('active');
-      if (opt.dataset.value === service) {
-        opt.classList.add('active');
-      }
+    document.querySelectorAll('.service-opt').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.value === service);
     });
   }
-  // Reset form view
-  document.getElementById('bookingForm').style.display = 'flex';
-  document.getElementById('bookingSuccess').style.display = 'none';
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeBooking() {
@@ -73,197 +63,122 @@ function closeBookingOnOverlay(e) {
   if (e.target === modal) closeBooking();
 }
 
-// Close on Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeBooking();
 });
 
-/* ---------- SERVICE SELECTOR ---------- */
+/* ---- SERVICE SELECTOR ---- */
 function selectService(el) {
   document.querySelectorAll('.service-opt').forEach(o => o.classList.remove('active'));
   el.classList.add('active');
 }
 
-/* ---------- PEOPLE COUNTER ---------- */
+/* ---- PEOPLE COUNTER ---- */
 function changePeople(delta) {
-  const input = document.getElementById('bookPeople');
-  const val   = parseInt(input.value) + delta;
-  if (val >= 1 && val <= 20) input.value = val;
+  const inp = document.getElementById('bookPeople');
+  const val = parseInt(inp.value) + delta;
+  if (val >= 1 && val <= 20) inp.value = val;
 }
 
-/* ---------- FORM SUBMIT ---------- */
+/* ---- FORM SUBMIT ---- */
 function submitBooking(e) {
   e.preventDefault();
-  const form    = document.getElementById('bookingForm');
-  const success = document.getElementById('bookingSuccess');
 
-  // Basic validation
   const name  = document.getElementById('bookName').value.trim();
   const phone = document.getElementById('bookPhone').value.trim();
   const date  = document.getElementById('bookDate').value;
   const time  = document.getElementById('bookTime').value;
 
   if (!name || !phone || !date || !time) {
-    showToast('Будь ласка, заповніть всі обов'язкові поля', 'error');
+    showToast('Будь ласка, заповніть всі обов\'язкові поля', 'error');
     return;
   }
   if (!validatePhone(phone)) {
-    showToast('Введіть коректний номер телефону', 'error');
+    showToast('Введіть коректний номер телефону (+380...)', 'error');
     return;
   }
 
-  const selectedService = document.querySelector('.service-opt.active');
-  const serviceNames = {
-    aquapark:   'Аквапарк',
-    fitness:    'Фітнес центр',
-    spa:        'SPA / Сауна',
-    hotel:      'Готель',
-    restaurant: 'Ресторан'
-  };
-  const serviceName = selectedService
-    ? serviceNames[selectedService.dataset.value] || selectedService.dataset.value
-    : 'Не вказано';
-
-  // Show success
-  form.style.display = 'none';
-  success.style.display = 'block';
+  // Show success screen
+  document.getElementById('bookingForm').style.display    = 'none';
+  document.getElementById('bookingSuccess').style.display = 'block';
   showToast('Заявку успішно надіслано! ✅', 'success');
-
-  console.log('Booking:', { name, phone, date, time, service: serviceName,
-    people: document.getElementById('bookPeople').value,
-    comment: document.getElementById('bookComment').value });
 }
 
 function validatePhone(phone) {
-  const cleaned = phone.replace(/[\s\-\(\)]/g, '');
-  return /^(\+380|380|0)\d{9}$/.test(cleaned);
+  return /^(\+380|380|0)\d{9}$/.test(phone.replace(/[\s\-\(\)]/g, ''));
 }
 
-/* ---------- PRICES TABS ---------- */
-function showPrices(tab) {
-  document.querySelectorAll('.prices__tab').forEach((t, i) => {
-    t.classList.remove('active');
+/* ---- PRICES TABS ---- */
+function showPrices(tab, btn) {
+  document.querySelectorAll('.prices__tab').forEach(t => t.classList.remove('active'));
+  ['aquapark','fitness','sauna'].forEach(id => {
+    const el = document.getElementById('prices-' + id);
+    if (el) el.style.display = (id === tab) ? 'grid' : 'none';
   });
-  document.querySelectorAll('.prices__grid').forEach(g => {
-    g.style.display = 'none';
-  });
-
-  const tabs = document.querySelectorAll('.prices__tab');
-  const map  = { aquapark: 0, fitness: 1, sauna: 2 };
-  if (tabs[map[tab]]) tabs[map[tab]].classList.add('active');
-  const grid = document.getElementById('prices-' + tab);
-  if (grid) grid.style.display = 'grid';
+  if (btn) btn.classList.add('active');
 }
 
-/* ---------- TOAST NOTIFICATIONS ---------- */
-function showToast(message, type = 'info') {
-  const existing = document.getElementById('toast');
-  if (existing) existing.remove();
+/* ---- TOAST ---- */
+function showToast(msg, type = 'info') {
+  const old = document.getElementById('__toast');
+  if (old) old.remove();
 
-  const toast = document.createElement('div');
-  toast.id = 'toast';
-  toast.innerHTML = message;
-  Object.assign(toast.style, {
-    position:       'fixed',
-    bottom:         '100px',
-    left:           '50%',
-    transform:      'translateX(-50%) translateY(20px)',
-    background:     type === 'success' ? '#1a9b3c' : type === 'error' ? '#ef4444' : '#1f2937',
-    color:          '#fff',
-    padding:        '14px 28px',
-    borderRadius:   '50px',
-    fontSize:       '0.95rem',
-    fontWeight:     '600',
-    boxShadow:      '0 8px 32px rgba(0,0,0,.25)',
-    zIndex:         '3000',
-    transition:     'all 0.35s cubic-bezier(.4,0,.2,1)',
-    opacity:        '0',
-    whiteSpace:     'nowrap',
-    fontFamily:     "'Inter', sans-serif"
+  const t = document.createElement('div');
+  t.id = '__toast';
+  t.textContent = msg;
+  Object.assign(t.style, {
+    position:   'fixed', bottom: '100px', left: '50%',
+    transform:  'translateX(-50%) translateY(20px)',
+    background: type === 'success' ? '#1a9b3c' : type === 'error' ? '#ef4444' : '#1f2937',
+    color:      '#fff', padding: '14px 28px', borderRadius: '50px',
+    fontSize:   '.95rem', fontWeight: '600',
+    boxShadow:  '0 8px 32px rgba(0,0,0,.25)', zIndex: '3000',
+    transition: 'all .35s ease', opacity: '0', whiteSpace: 'nowrap',
+    fontFamily: 'inherit'
   });
-  document.body.appendChild(toast);
+  document.body.appendChild(t);
   requestAnimationFrame(() => {
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateX(-50%) translateY(0)';
+    t.style.opacity   = '1';
+    t.style.transform = 'translateX(-50%) translateY(0)';
   });
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(-50%) translateY(20px)';
-    setTimeout(() => toast.remove(), 350);
+    t.style.opacity   = '0';
+    t.style.transform = 'translateX(-50%) translateY(20px)';
+    setTimeout(() => t.remove(), 350);
   }, 3500);
 }
 
-/* ---------- SMOOTH SCROLL HELPER ---------- */
-function scrollTo(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-/* ---------- INTERSECTION OBSERVER (fade-in) ---------- */
-const observerOpts = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+/* ---- SCROLL ANIMATIONS ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
     }
   });
-}, observerOpts);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Add fade-in classes on load
-window.addEventListener('DOMContentLoaded', () => {
-  const els = document.querySelectorAll(
-    '.service-card, .price-card, .contact-block, ' +
-    '.detail-section__content, .detail-section__visual, ' +
-    '.hero__stat, .schedule__booking'
-  );
-  els.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`;
-    observer.observe(el);
-  });
+document.querySelectorAll(
+  '.service-card, .price-card, .contact-block, ' +
+  '.detail-section__content, .detail-section__visual, ' +
+  '.schedule__booking, .hero__stat'
+).forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.04) + 's';
+  io.observe(el);
 });
 
-// Visible class triggers the animation
-document.addEventListener('DOMContentLoaded', () => {
-  const style = document.createElement('style');
-  style.textContent = `
-    .visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-  `;
-  document.head.appendChild(style);
-});
-
-/* ---------- ACTIVE NAV LINK ON SCROLL ---------- */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav__link');
-
+/* ---- ACTIVE NAV ON SCROLL ---- */
+const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    if (window.scrollY >= top) current = section.getAttribute('id');
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 110) current = s.id;
   });
-  navLinks.forEach(link => {
-    link.classList.remove('active-link');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active-link');
-    }
+  document.querySelectorAll('.nav__link').forEach(link => {
+    link.classList.toggle('active-link', link.getAttribute('href') === '#' + current);
   });
-});
+}, { passive: true });
 
-/* Highlight active nav link */
-const style = document.createElement('style');
-style.textContent = `
-  .nav__link.active-link {
-    color: var(--green) !important;
-    background: var(--green-light);
-  }
-`;
-document.head.appendChild(style);
-
-/* ---------- INIT ---------- */
+/* ---- INIT ---- */
 updateFloatCta();
