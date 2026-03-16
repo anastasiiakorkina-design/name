@@ -5,26 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Алігатор — Оздоровчий комплекс Тернопіль</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
+  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="logo">
         <div class="logo__icon">
-          <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 32 Q15 8 30 12 Q45 16 55 8" stroke="#1a9b3c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-            <path d="M5 32 Q10 36 18 34 Q22 33 24 30" stroke="#1a9b3c" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <circle cx="8" cy="30" r="2.5" fill="#1a9b3c"/>
-            <path d="M30 12 Q32 6 38 5" stroke="#0d7a2e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M38 5 Q42 4 44 7 Q43 10 40 9 Q36 8 38 5Z" fill="#1a9b3c"/>
+          <!-- Real Alligator logo recreated as SVG -->
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="39">
+            <!-- Body -->
+            <ellipse cx="38" cy="32" rx="22" ry="12" fill="#1a9b3c"/>
+            <!-- Head -->
+            <ellipse cx="60" cy="28" rx="12" ry="8" fill="#1a9b3c"/>
+            <!-- Snout -->
+            <ellipse cx="72" cy="30" rx="6" ry="4" fill="#0d7a2e"/>
+            <!-- Eye -->
+            <circle cx="63" cy="24" r="2.5" fill="#fff"/>
+            <circle cx="63" cy="24" r="1.2" fill="#0a0a0a"/>
+            <!-- Upper jaw spikes / teeth hint -->
+            <path d="M60 22 L62 19 L64 22" fill="#fff"/>
+            <!-- Tail -->
+            <path d="M16 32 Q6 30 4 24 Q6 20 10 25 Q12 28 16 32Z" fill="#0d7a2e"/>
+            <!-- Legs -->
+            <path d="M28 42 L24 50 L26 50 L30 43" fill="#1a9b3c"/>
+            <path d="M40 43 L38 52 L40 52 L42 43" fill="#1a9b3c"/>
+            <path d="M48 41 L46 49 L48 49 L50 41" fill="#1a9b3c"/>
+            <!-- Scales pattern -->
+            <path d="M25 28 Q30 24 35 28 Q40 24 45 28 Q50 24 55 28" stroke="#0d7a2e" stroke-width="1.5" fill="none"/>
           </svg>
         </div>
         <div class="logo__text">
-          <span class="logo__name">АЛІГАТОР</span>
+          <span class="logo__name">АЛІҐАТОР</span>
           <span class="logo__sub">Оздоровчий комплекс</span>
         </div>
       </a>
@@ -33,6 +46,7 @@
         <a href="#services" class="nav__link">Послуги</a>
         <a href="#aquapark" class="nav__link">Аквапарк</a>
         <a href="#fitness" class="nav__link">Фітнес</a>
+        <a href="#memberships" class="nav__link">Абонементи</a>
         <a href="#spa" class="nav__link">SPA</a>
         <a href="#hotel" class="nav__link">Готель</a>
         <a href="#restaurant" class="nav__link">Ресторан</a>
@@ -42,21 +56,19 @@
 
       <div class="header__actions">
         <a href="tel:+380675556888" class="header__phone">
-          <i class="fas fa-phone"></i>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 10.82 19.79 19.79 0 01.87 2.18 2 2 0 012.85 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
           <span>(067) 555-68-88</span>
         </a>
-        <button class="btn btn--primary" onclick="openBooking()">
-          <i class="fas fa-calendar-check"></i> Забронювати
-        </button>
+        <button class="btn btn--primary" onclick="openBooking()">&#128197; Забронювати</button>
       </div>
 
-      <button class="burger" id="burger" onclick="toggleMenu()">
+      <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== HERO ========== -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero__bg">
       <div class="hero__blob hero__blob--1"></div>
@@ -65,26 +77,19 @@
     </div>
     <div class="container hero__inner">
       <div class="hero__content">
-        <div class="hero__badge">
-          <i class="fas fa-award"></i>
-          Найбільший комплекс Тернопільщини
-        </div>
+        <div class="hero__badge">🏆 Найбільший комплекс Тернопільщини</div>
         <h1 class="hero__title">
-          Все для <span class="highlight">здоров'я</span><br/>
-          та відпочинку<br/>
+          Все для <span class="highlight">здоров'я</span><br>
+          та відпочинку<br>
           твоєї родини
         </h1>
         <p class="hero__desc">
-          Аквапарк · Фітнес · SPA · Готель · Ресторан<br/>
-          На площі більше <strong>7000 м²</strong> у серці Тернополя
+          Аквапарк · Фітнес · SPA · Готель · Ресторан<br>
+          На площі більше <strong>7 000 м²</strong> у серці Тернополя
         </p>
         <div class="hero__ctas">
-          <button class="btn btn--primary btn--lg" onclick="openBooking()">
-            <i class="fas fa-calendar-plus"></i> Забронювати онлайн
-          </button>
-          <a href="#services" class="btn btn--ghost btn--lg">
-            <i class="fas fa-compass"></i> Дізнатися більше
-          </a>
+          <button class="btn btn--primary btn--lg" onclick="openBooking()">&#128197; Забронювати онлайн</button>
+          <a href="#services" class="btn btn--outline btn--lg">Дізнатися більше ↓</a>
         </div>
         <div class="hero__stats">
           <div class="hero__stat">
@@ -104,7 +109,7 @@
           <div class="hero__stat-div"></div>
           <div class="hero__stat">
             <span class="hero__stat-num">38</span>
-            <span class="hero__stat-label">номерів готелю</span>
+            <span class="hero__stat-label">номерів</span>
           </div>
         </div>
       </div>
@@ -112,12 +117,12 @@
         <div class="hero__card hero__card--main">
           <div class="hero__card-icon">🌊</div>
           <h3>Аквапарк</h3>
-          <p>3 басейни · 8 гірок · t° 30°C</p>
+          <p>3 басейни · 8 гірок · 30°C</p>
         </div>
         <div class="hero__card hero__card--2">
           <div class="hero__card-icon">💪</div>
           <h3>Фітнес</h3>
-          <p>10 залів · сучасне обладнання</p>
+          <p>10 залів · 100+ тренажерів</p>
         </div>
         <div class="hero__card hero__card--3">
           <div class="hero__card-icon">🧖</div>
@@ -131,84 +136,70 @@
         </div>
       </div>
     </div>
-    <div class="hero__scroll">
-      <span>Гортай вниз</span>
-      <div class="hero__scroll-line"></div>
-    </div>
   </section>
 
-  <!-- ========== SERVICES OVERVIEW ========== -->
+  <!-- SERVICES -->
   <section class="services" id="services">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Наші послуги</span>
         <h2 class="section-title">Все, що потрібно для <span class="highlight">ідеального відпочинку</span></h2>
-        <p class="section-desc">Оздоровчий комплекс «Алігатор» — унікальне місце, де кожен знайде щось своє</p>
+        <p class="section-desc">Оздоровчий комплекс «Аліґатор» — унікальне місце, де кожен знайде щось своє</p>
       </div>
       <div class="services__grid">
-        <div class="service-card" onclick="scrollTo('aquapark')">
-          <div class="service-card__img service-card__img--aqua">
-            <div class="service-card__emoji">🌊</div>
-          </div>
+        <div class="service-card" onclick="document.getElementById('aquapark').scrollIntoView({behavior:'smooth'})">
+          <div class="service-card__img service-card__img--aqua"><div class="service-card__emoji">🌊</div></div>
           <div class="service-card__body">
             <h3>Аквапарк</h3>
             <p>Найчистіший критий аквапарк Тернопільщини з 8 гірками та 3 басейнами. Власна свердловина 86 м.</p>
-            <a href="#aquapark" class="service-card__link">Детальніше <i class="fas fa-arrow-right"></i></a>
+            <a href="#aquapark" class="service-card__link">Детальніше →</a>
           </div>
         </div>
-        <div class="service-card" onclick="scrollTo('fitness')">
-          <div class="service-card__img service-card__img--fitness">
-            <div class="service-card__emoji">💪</div>
-          </div>
+        <div class="service-card" onclick="document.getElementById('fitness').scrollIntoView({behavior:'smooth'})">
+          <div class="service-card__img service-card__img--fitness"><div class="service-card__emoji">💪</div></div>
           <div class="service-card__body">
             <h3>Фітнес центр</h3>
             <p>Більше 5000 м² — 3 силових зали, 2 кардіо зали, групові програми, єдиноборства, плавання.</p>
-            <a href="#fitness" class="service-card__link">Детальніше <i class="fas fa-arrow-right"></i></a>
+            <a href="#fitness" class="service-card__link">Детальніше →</a>
           </div>
         </div>
-        <div class="service-card" onclick="scrollTo('spa')">
-          <div class="service-card__img service-card__img--spa">
-            <div class="service-card__emoji">🧖</div>
-          </div>
+        <div class="service-card" onclick="document.getElementById('spa').scrollIntoView({behavior:'smooth'})">
+          <div class="service-card__img service-card__img--spa"><div class="service-card__emoji">🧖</div></div>
           <div class="service-card__body">
-            <h3>SPA & Сауна</h3>
+            <h3>SPA &amp; Сауна</h3>
             <p>Хаммам, ІЧ-сауна, фінська сауна, джакузі, масаж — найнижчі ціни в Тернополі.</p>
-            <a href="#spa" class="service-card__link">Детальніше <i class="fas fa-arrow-right"></i></a>
+            <a href="#spa" class="service-card__link">Детальніше →</a>
           </div>
         </div>
-        <div class="service-card" onclick="scrollTo('hotel')">
-          <div class="service-card__img service-card__img--hotel">
-            <div class="service-card__emoji">🏨</div>
-          </div>
+        <div class="service-card" onclick="document.getElementById('hotel').scrollIntoView({behavior:'smooth'})">
+          <div class="service-card__img service-card__img--hotel"><div class="service-card__emoji">🏨</div></div>
           <div class="service-card__body">
             <h3>Готель</h3>
             <p>38 затишних номерів — Стандарт, Напівлюкс, Люкс. Ідеально для відпочинку та ділових поїздок.</p>
-            <a href="#hotel" class="service-card__link">Детальніше <i class="fas fa-arrow-right"></i></a>
+            <a href="#hotel" class="service-card__link">Детальніше →</a>
           </div>
         </div>
-        <div class="service-card" onclick="scrollTo('restaurant')">
-          <div class="service-card__img service-card__img--restaurant">
-            <div class="service-card__emoji">🍽️</div>
-          </div>
+        <div class="service-card" onclick="document.getElementById('restaurant').scrollIntoView({behavior:'smooth'})">
+          <div class="service-card__img service-card__img--restaurant"><div class="service-card__emoji">🍽️</div></div>
           <div class="service-card__body">
             <h3>Ресторан</h3>
             <p>Сімейний ресторан, Aqua Bar, Lobby Bar, Fitness Bar — європейська та українська кухня.</p>
-            <a href="#restaurant" class="service-card__link">Детальніше <i class="fas fa-arrow-right"></i></a>
+            <a href="#restaurant" class="service-card__link">Детальніше →</a>
           </div>
         </div>
         <div class="service-card service-card--cta" onclick="openBooking()">
           <div class="service-card__cta-inner">
-            <div class="service-card__emoji">📅</div>
+            <div class="service-card__emoji" style="font-size:3rem;margin-bottom:12px">📅</div>
             <h3>Забронювати онлайн</h3>
-            <p>Обери послугу та зручний час для відвідування прямо зараз</p>
-            <button class="btn btn--primary">Забронювати зараз</button>
+            <p>Обери послугу та зручний час прямо зараз</p>
+            <button class="btn btn--white" style="margin-top:16px">Забронювати зараз</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== AQUAPARK ========== -->
+  <!-- AQUAPARK -->
   <section class="detail-section" id="aquapark">
     <div class="container">
       <div class="detail-section__inner detail-section__inner--reverse">
@@ -216,7 +207,7 @@
           <div class="visual-box visual-box--blue">
             <div class="visual-box__main">
               <span class="visual-box__emoji">🌊</span>
-              <h3>Аквапарк «Алігатор»</h3>
+              <h3>Аквапарк «Аліґатор»</h3>
               <p>Найчистіший в Україні</p>
             </div>
             <div class="visual-box__stats">
@@ -229,19 +220,17 @@
         <div class="detail-section__content">
           <span class="section-tag">Аквапарк</span>
           <h2>Найкращий відпочинок <span class="highlight">для всієї сім'ї</span></h2>
-          <p>Єдиний критий аквапарк Тернопільської області! Власна водяна свердловина глибиною 86 м, трьохступенева система очистки гарантують безпечний відпочинок навіть для немовлят від 3 місяців.</p>
+          <p>Єдиний критий аквапарк Тернопільської області! Власна свердловина 86 м, трьохступенева система очистки — безпечно навіть для немовлят від 3 місяців.</p>
           <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> 3 басейни (150 см, 90 см, 30 см глибиною)</li>
-            <li><i class="fas fa-check-circle"></i> 8 водяних гірок довжиною від 3 до 33 м</li>
-            <li><i class="fas fa-check-circle"></i> Зона гідромасажу та джакузі</li>
-            <li><i class="fas fa-check-circle"></i> Постійна температура 30°C</li>
-            <li><i class="fas fa-check-circle"></i> Атракціони та водоспади</li>
-            <li><i class="fas fa-check-circle"></i> SPA-зона: Хаммам, ІЧ-сауна</li>
+            <li>✅ 3 басейни (150 см, 90 см, 30 см глибиною)</li>
+            <li>✅ 8 водяних гірок довжиною від 3 до 33 м</li>
+            <li>✅ Зона гідромасажу та джакузі</li>
+            <li>✅ Постійна температура 30°C</li>
+            <li>✅ Атракціони та водоспади</li>
+            <li>✅ SPA-зона: Хаммам, ІЧ-сауна</li>
           </ul>
           <div class="detail-ctas">
-            <button class="btn btn--primary" onclick="openBooking('aquapark')">
-              <i class="fas fa-ticket-alt"></i> Купити квиток
-            </button>
+            <button class="btn btn--primary" onclick="openBooking('aquapark')">🎟 Купити квиток</button>
             <a href="#prices" class="btn btn--outline">Переглянути ціни</a>
           </div>
         </div>
@@ -249,27 +238,25 @@
     </div>
   </section>
 
-  <!-- ========== FITNESS ========== -->
+  <!-- FITNESS -->
   <section class="detail-section detail-section--gray" id="fitness">
     <div class="container">
       <div class="detail-section__inner">
         <div class="detail-section__content">
           <span class="section-tag">Фітнес центр</span>
           <h2>Найбільший фітнес центр <span class="highlight">Тернополя</span></h2>
-          <p>Більше 5000 м² сучасного простору для тренувань всіх рівнів підготовки. Обладнання Interatletika — понад 100 одиниць.</p>
+          <p>Більше 5000 м² сучасного простору для тренувань. Обладнання Interatletika — понад 100 одиниць.</p>
           <div class="fitness-zones">
-            <div class="fz"><i class="fas fa-dumbbell"></i><span>3 силових зали</span></div>
-            <div class="fz"><i class="fas fa-heartbeat"></i><span>2 кардіо зали</span></div>
-            <div class="fz"><i class="fas fa-users"></i><span>2 зали групових програм</span></div>
-            <div class="fz"><i class="fas fa-fist-raised"></i><span>Єдиноборства</span></div>
-            <div class="fz"><i class="fas fa-swimmer"></i><span>Плавання & Аква-фітнес</span></div>
-            <div class="fz"><i class="fas fa-running"></i><span>Workout / Кросфіт</span></div>
+            <div class="fz">🏋️ 3 силових зали</div>
+            <div class="fz">❤️ 2 кардіо зали</div>
+            <div class="fz">👥 2 зали групових програм</div>
+            <div class="fz">🥊 Єдиноборства</div>
+            <div class="fz">🏊 Плавання &amp; Аква-фітнес</div>
+            <div class="fz">🏃 Workout / Кросфіт</div>
           </div>
           <p class="fitness-programs"><strong>Групові програми:</strong> Йога · Табата · Стретчинг · Зумба · Пілатес · Тай-бо · Альфа-Гравіті</p>
           <div class="detail-ctas">
-            <button class="btn btn--primary" onclick="openBooking('fitness')">
-              <i class="fas fa-id-card"></i> Купити абонемент
-            </button>
+            <button class="btn btn--primary" onclick="openBooking('fitness')">🪪 Купити абонемент</button>
             <a href="#prices" class="btn btn--outline">Дізнатись ціни</a>
           </div>
         </div>
@@ -291,7 +278,84 @@
     </div>
   </section>
 
-  <!-- ========== SPA ========== -->
+  <!-- MEMBERSHIPS -->
+  <section class="memberships" id="memberships">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Абонементи</span>
+        <h2 class="section-title">Обери свій <span class="highlight">абонемент</span></h2>
+        <p class="section-desc">Необмежений доступ до комплексу — обери план, який підходить саме тобі</p>
+      </div>
+      <div class="memberships__grid">
+
+        <!-- START -->
+        <div class="membership-card">
+          <div class="membership-card__tier">Старт</div>
+          <h3 class="membership-card__name">Ранковий</h3>
+          <div class="membership-card__price">
+            <span class="membership-card__amount">1 200</span>
+            <span class="membership-card__currency">₴</span>
+            <span class="membership-card__period">/ міс</span>
+          </div>
+          <p class="membership-card__desc">Доступ до 14:00 щодня</p>
+          <hr class="membership-card__divider">
+          <ul class="membership-card__features">
+            <li>✅ Тренажерний зал</li>
+            <li>✅ Роздягальня з душем</li>
+            <li>✅ Групові заняття (ранок)</li>
+            <li>✅ Консультація тренера</li>
+          </ul>
+          <button class="btn btn--outline membership-card__btn" onclick="openBooking('fitness')">Придбати</button>
+        </div>
+
+        <!-- FULL ACCESS (featured) -->
+        <div class="membership-card membership-card--featured">
+          <div class="membership-card__top-badge">ТОП ВИБІР</div>
+          <div class="membership-card__tier">Популярний</div>
+          <h3 class="membership-card__name">Повний доступ</h3>
+          <div class="membership-card__price">
+            <span class="membership-card__amount">2 400</span>
+            <span class="membership-card__currency">₴</span>
+            <span class="membership-card__period">/ міс</span>
+          </div>
+          <p class="membership-card__desc">Необмежений доступ весь день</p>
+          <hr class="membership-card__divider">
+          <ul class="membership-card__features">
+            <li>✅ Тренажерний зал</li>
+            <li>✅ Басейн + Аквапарк</li>
+            <li>✅ Усі групові заняття</li>
+            <li>✅ SPA-зона (хамам, сауна)</li>
+            <li>✅ Дитяча кімната</li>
+          </ul>
+          <button class="btn btn--primary membership-card__btn" onclick="openBooking('fitness')">Придбати</button>
+        </div>
+
+        <!-- VIP -->
+        <div class="membership-card">
+          <div class="membership-card__tier">Преміум</div>
+          <h3 class="membership-card__name">VIP</h3>
+          <div class="membership-card__price">
+            <span class="membership-card__amount">4 500</span>
+            <span class="membership-card__currency">₴</span>
+            <span class="membership-card__period">/ міс</span>
+          </div>
+          <p class="membership-card__desc">Усе включено + бонуси</p>
+          <hr class="membership-card__divider">
+          <ul class="membership-card__features">
+            <li>✅ Усе з «Повного доступу»</li>
+            <li>✅ Персональний тренер (4 заняття)</li>
+            <li>✅ 2 масажі на місяць</li>
+            <li>✅ Знижка 20% у ресторані</li>
+            <li>✅ Гостьовий візит (1/міс)</li>
+          </ul>
+          <button class="btn btn--outline membership-card__btn" onclick="openBooking('fitness')">Придбати</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPA -->
   <section class="detail-section" id="spa">
     <div class="container">
       <div class="detail-section__inner detail-section__inner--reverse">
@@ -299,42 +363,38 @@
           <div class="visual-box visual-box--purple">
             <div class="visual-box__main">
               <span class="visual-box__emoji">🧖</span>
-              <h3>SPA & Релакс</h3>
+              <h3>SPA &amp; Релакс</h3>
               <p>Відновлення душі та тіла</p>
             </div>
             <div class="visual-box__stats">
               <div class="vs"><span>24/7</span><small>сауна</small></div>
-              <div class="vs"><span>4</span><small>кімнати сауни</small></div>
-              <div class="vs"><span>12 м</span><small>теплий басейн</small></div>
+              <div class="vs"><span>4</span><small>кімнати</small></div>
+              <div class="vs"><span>12 м</span><small>басейн</small></div>
             </div>
           </div>
         </div>
         <div class="detail-section__content">
-          <span class="section-tag">SPA & Сауна</span>
+          <span class="section-tag">SPA &amp; Сауна</span>
           <h2>Розкіш відпочинку за <span class="highlight">доступними цінами</span></h2>
-          <p>Найнижчі ціни на масаж у Тернополі! Повне розслаблення та відновлення після тренувань або насиченого дня.</p>
+          <p>Найнижчі ціни на масаж у Тернополі! Повне розслаблення після тренувань або насиченого дня.</p>
           <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Цілодобова фінська сауна (оренда)</li>
-            <li><i class="fas fa-check-circle"></i> Турецька баня Хаммам</li>
-            <li><i class="fas fa-check-circle"></i> Інфрачервона сауна</li>
-            <li><i class="fas fa-check-circle"></i> Теплий басейн 12 м + холодний (контрастний)</li>
-            <li><i class="fas fa-check-circle"></i> Кімната відпочинку з більярдом</li>
-            <li><i class="fas fa-check-circle"></i> Професійні масажисти</li>
+            <li>✅ Цілодобова фінська сауна (оренда)</li>
+            <li>✅ Турецька баня Хаммам</li>
+            <li>✅ Інфрачервона сауна</li>
+            <li>✅ Теплий басейн 12 м + холодний контрастний</li>
+            <li>✅ Кімната відпочинку з більярдом</li>
+            <li>✅ Професійні масажисти</li>
           </ul>
           <div class="detail-ctas">
-            <button class="btn btn--primary" onclick="openBooking('spa')">
-              <i class="fas fa-spa"></i> Забронювати SPA
-            </button>
-            <a href="tel:+380675556888" class="btn btn--outline">
-              <i class="fas fa-phone"></i> Зателефонувати
-            </a>
+            <button class="btn btn--primary" onclick="openBooking('spa')">💆 Забронювати SPA</button>
+            <a href="tel:+380675556888" class="btn btn--outline">📞 Зателефонувати</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== HOTEL ========== -->
+  <!-- HOTEL -->
   <section class="detail-section detail-section--gray" id="hotel">
     <div class="container">
       <div class="detail-section__inner">
@@ -345,31 +405,20 @@
           <div class="room-types">
             <div class="room-type">
               <div class="room-type__icon">🛏️</div>
-              <div>
-                <strong>Стандарт</strong>
-                <span>Все необхідне для комфортного проживання</span>
-              </div>
+              <div><strong>Стандарт</strong><span>Все необхідне для комфортного проживання</span></div>
             </div>
             <div class="room-type">
               <div class="room-type__icon">⭐</div>
-              <div>
-                <strong>Напівлюкс</strong>
-                <span>Підвищений рівень комфорту та простору</span>
-              </div>
+              <div><strong>Напівлюкс</strong><span>Підвищений рівень комфорту та простору</span></div>
             </div>
             <div class="room-type">
               <div class="room-type__icon">👑</div>
-              <div>
-                <strong>Люкс</strong>
-                <span>Максимальний комфорт і розкіш</span>
-              </div>
+              <div><strong>Люкс</strong><span>Максимальний комфорт і розкіш</span></div>
             </div>
           </div>
-          <p class="hotel-note"><i class="fas fa-info-circle"></i> Всі номери обладнані: кондиціонер, ТВ, Wi-Fi, ванна кімната. Вмістимість: 71–108 осіб.</p>
+          <p class="hotel-note">ℹ️ Всі номери: кондиціонер, ТВ, Wi-Fi, ванна кімната. Вмістимість до 108 осіб.</p>
           <div class="detail-ctas">
-            <button class="btn btn--primary" onclick="openBooking('hotel')">
-              <i class="fas fa-bed"></i> Забронювати номер
-            </button>
+            <button class="btn btn--primary" onclick="openBooking('hotel')">🛏 Забронювати номер</button>
             <a href="tel:+380675556888" class="btn btn--outline">Натисніть 1 — Готель</a>
           </div>
         </div>
@@ -391,7 +440,7 @@
     </div>
   </section>
 
-  <!-- ========== RESTAURANT ========== -->
+  <!-- RESTAURANT -->
   <section class="detail-section" id="restaurant">
     <div class="container">
       <div class="detail-section__inner detail-section__inner--reverse">
@@ -411,27 +460,25 @@
           </div>
         </div>
         <div class="detail-section__content">
-          <span class="section-tag">Ресторан & Бари</span>
+          <span class="section-tag">Ресторан &amp; Бари</span>
           <h2>Смачна їжа в <span class="highlight">чотирьох форматах</span></h2>
-          <p>Від ранніх сніданків до вечірнього романтичного вечера — 4 гастрономічних простори для будь-якого настрою.</p>
+          <p>Від ранніх сніданків до вечірнього романтичного вечора — 4 гастрономічних простори для будь-якого настрою.</p>
           <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Сімейний ресторан — українська та європейська кухня</li>
-            <li><i class="fas fa-check-circle"></i> Aqua Bar — освіжаючі напої та закуски</li>
-            <li><i class="fas fa-check-circle"></i> Lobby Bar — кава та легкі сніданки</li>
-            <li><i class="fas fa-check-circle"></i> Fitness Bar — корисне харчування для спортсменів</li>
-            <li><i class="fas fa-check-circle"></i> Бізнес-ланч щодня</li>
+            <li>✅ Сімейний ресторан — українська та європейська кухня</li>
+            <li>✅ Aqua Bar — освіжаючі напої та закуски</li>
+            <li>✅ Lobby Bar — кава та легкі сніданки</li>
+            <li>✅ Fitness Bar — корисне харчування для спортсменів</li>
+            <li>✅ Бізнес-ланч щодня</li>
           </ul>
           <div class="detail-ctas">
-            <a href="tel:+380675556888" class="btn btn--primary">
-              <i class="fas fa-phone"></i> Забронювати стіл
-            </a>
+            <a href="tel:+380675556888" class="btn btn--primary">📞 Забронювати стіл</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICES ========== -->
+  <!-- PRICES -->
   <section class="prices" id="prices">
     <div class="container">
       <div class="section-header">
@@ -439,66 +486,90 @@
         <h2 class="section-title">Прозорі <span class="highlight">тарифи</span></h2>
         <p class="section-desc">Обери зручний варіант для себе та своєї родини</p>
       </div>
-
       <div class="prices__tabs">
-        <button class="prices__tab active" onclick="showPrices('aquapark')">Аквапарк</button>
-        <button class="prices__tab" onclick="showPrices('fitness')">Фітнес</button>
-        <button class="prices__tab" onclick="showPrices('sauna')">Сауна</button>
+        <button class="prices__tab active" onclick="showPrices('aquapark',this)">🌊 Аквапарк</button>
+        <button class="prices__tab" onclick="showPrices('fitness',this)">💪 Фітнес</button>
+        <button class="prices__tab" onclick="showPrices('sauna',this)">🧖 Сауна</button>
       </div>
 
-      <!-- Aquapark prices -->
       <div class="prices__grid" id="prices-aquapark">
-        <div class="price-card">
-          <div class="price-card__header">
-            <div class="price-card__icon">👶</div>
-            <h3>Дитячий</h3>
-            <p>До 13 років включно</p>
+        <div class="aqua-price-table-wrap">
+          <div class="aqua-price-table-scroll">
+            <table class="aqua-price-table">
+              <thead>
+                <tr>
+                  <th rowspan="2" class="apt-label">Тарифи<br>аквапарку</th>
+                  <th colspan="2">1 година</th>
+                  <th colspan="2">2 години</th>
+                  <th colspan="2">3 години</th>
+                  <th colspan="2">4 години</th>
+                  <th colspan="2">Цілий день</th>
+                </tr>
+                <tr>
+                  <th class="apt-sub">Будні<br>Пн–Пт</th>
+                  <th class="apt-sub">Вихідні<br>Сб–Нд</th>
+                  <th class="apt-sub">Будні<br>Пн–Пт</th>
+                  <th class="apt-sub">Вихідні<br>Сб–Нд</th>
+                  <th class="apt-sub">Будні<br>Пн–Пт</th>
+                  <th class="apt-sub">Вихідні<br>Сб–Нд</th>
+                  <th class="apt-sub">Будні<br>Пн–Пт</th>
+                  <th class="apt-sub">Вихідні<br>Сб–Нд</th>
+                  <th class="apt-sub">Будні<br>Пн–Пт</th>
+                  <th class="apt-sub">Вихідні<br>Сб–Нд</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="apt-name">👶 Дитячий</td>
+                  <td>180</td><td>230</td>
+                  <td>250</td><td>280</td>
+                  <td>280</td><td>330</td>
+                  <td>330</td><td>380</td>
+                  <td>400</td><td>450</td>
+                </tr>
+                <tr>
+                  <td class="apt-name">🧑 Дорослий</td>
+                  <td>280</td><td>330</td>
+                  <td>380</td><td>420</td>
+                  <td>450</td><td>480</td>
+                  <td>480</td><td>550</td>
+                  <td>700</td><td>780</td>
+                </tr>
+                <tr class="apt-row--featured">
+                  <td class="apt-name">👨‍👩‍👧 Сімейний</td>
+                  <td>580</td><td>690</td>
+                  <td>690</td><td>990</td>
+                  <td>900</td><td>1020</td>
+                  <td>1020</td><td>1100</td>
+                  <td>1350</td><td>1500</td>
+                </tr>
+                <tr>
+                  <td class="apt-name">➕1 Дитина</td>
+                  <td>150</td><td>200</td>
+                  <td>210</td><td>240</td>
+                  <td>250</td><td>280</td>
+                  <td>290</td><td>340</td>
+                  <td>400</td><td>450</td>
+                </tr>
+                <tr>
+                  <td class="apt-name">🎓 Лояльний</td>
+                  <td>230</td><td>280</td>
+                  <td>330</td><td>370</td>
+                  <td>400</td><td>430</td>
+                  <td>430</td><td>500</td>
+                  <td>630</td><td>680</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="price-card__body">
-            <ul>
-              <li><span>30 хв</span><strong>уточнюйте</strong></li>
-              <li><span>1 година</span><strong>уточнюйте</strong></li>
-              <li><span>Увесь день</span><strong>уточнюйте</strong></li>
-            </ul>
-            <p class="price-card__note">* При собі мати документ що засвідчує вік</p>
+          <p class="aqua-price-note">* Усі ціни в гривнях (₴). Лояльний тариф — студенти, учні, пенсіонери (при пред'явленні посвідчення). +1 Дитина — додаткова дитина до сімейного квитка.</p>
+          <div style="text-align:center;margin-top:20px">
+            <button class="btn btn--primary" onclick="openBooking('aquapark')">🎟 Купити квиток</button>
           </div>
-          <button class="btn btn--primary price-card__btn" onclick="openBooking('aquapark')">Купити квиток</button>
-        </div>
-        <div class="price-card price-card--featured">
-          <div class="price-card__badge">Популярний</div>
-          <div class="price-card__header">
-            <div class="price-card__icon">👨‍👩‍👧</div>
-            <h3>Сімейний</h3>
-            <p>2 дорослих + 1 дитина або 1 дорослий + 2 дитини</p>
-          </div>
-          <div class="price-card__body">
-            <ul>
-              <li><span>Вихідні</span><strong>уточнюйте</strong></li>
-              <li><span>Будні</span><strong>уточнюйте</strong></li>
-            </ul>
-            <p class="price-card__note">* Діти 14–17 р. — у супроводі дорослих або за згодою батьків</p>
-          </div>
-          <button class="btn btn--primary price-card__btn" onclick="openBooking('aquapark')">Купити квиток</button>
-        </div>
-        <div class="price-card">
-          <div class="price-card__header">
-            <div class="price-card__icon">🎓</div>
-            <h3>Лояльний</h3>
-            <p>Студенти, учні, пенсіонери</p>
-          </div>
-          <div class="price-card__body">
-            <ul>
-              <li><span>1 година</span><strong>уточнюйте</strong></li>
-              <li><span>Увесь день</span><strong>уточнюйте</strong></li>
-            </ul>
-            <p class="price-card__note">* При собі мати відповідне посвідчення</p>
-          </div>
-          <button class="btn btn--primary price-card__btn" onclick="openBooking('aquapark')">Купити квиток</button>
         </div>
       </div>
 
-      <!-- Fitness prices -->
-      <div class="prices__grid" id="prices-fitness" style="display:none;">
+      <div class="prices__grid" id="prices-fitness" style="display:none">
         <div class="price-card">
           <div class="price-card__header">
             <div class="price-card__icon">🏃</div>
@@ -527,7 +598,7 @@
               <li><span>Комбінований</span><strong>уточнюйте</strong></li>
               <li><span>Full-access</span><strong>уточнюйте</strong></li>
             </ul>
-            <p class="price-card__note">* Разова заморозка до 5 днів включена. Картка клубу — 30 грн.</p>
+            <p class="price-card__note">* Разова заморозка до 5 днів. Картка — 30 грн.</p>
           </div>
           <button class="btn btn--primary price-card__btn" onclick="openBooking('fitness')">Купити абонемент</button>
         </div>
@@ -548,9 +619,8 @@
         </div>
       </div>
 
-      <!-- Sauna prices -->
-      <div class="prices__grid" id="prices-sauna" style="display:none;">
-        <div class="price-card price-card--featured" style="grid-column: 1/-1; max-width: 520px; margin: 0 auto;">
+      <div class="prices__grid" id="prices-sauna" style="display:none">
+        <div class="price-card price-card--featured" style="grid-column:1/-1;max-width:520px;margin:0 auto">
           <div class="price-card__header">
             <div class="price-card__icon">🧖</div>
             <h3>Цілодобова сауна</h3>
@@ -558,67 +628,91 @@
           </div>
           <div class="price-card__body">
             <ul>
-              <li><span>Включено:</span><strong>Фінська + ІЧ сауна</strong></li>
+              <li><span>Фінська + ІЧ сауна</span><strong>включено</strong></li>
               <li><span>Теплий басейн</span><strong>12 метрів</strong></li>
-              <li><span>Холодний басейн</span><strong>контрастний</strong></li>
+              <li><span>Холодний (контрастний)</span><strong>включено</strong></li>
               <li><span>Більярд</span><strong>включено</strong></li>
               <li><span>Вартість оренди</span><strong>уточнюйте</strong></li>
             </ul>
-            <p class="price-card__note">* Одночасно 4 кімнати для компанії</p>
+            <p class="price-card__note">* Одночасно 4 кімнати для вашої компанії</p>
           </div>
           <button class="btn btn--primary price-card__btn" onclick="openBooking('spa')">Забронювати сауну</button>
         </div>
       </div>
 
       <div class="prices__cta">
-        <p><i class="fas fa-phone-alt"></i> Уточнити актуальні ціни: <a href="tel:+380675556888">(067) 555-68-88</a> або <a href="tel:+380352528282">(0352) 52-82-82</a></p>
+        📞 Уточнити актуальні ціни: <a href="tel:+380675556888">(067) 555-68-88</a> або <a href="tel:+380352528282">(0352) 52-82-82</a>
       </div>
     </div>
   </section>
 
-  <!-- ========== SCHEDULE ========== -->
+  <!-- SCHEDULE -->
   <section class="schedule">
     <div class="container">
-      <div class="schedule__inner">
-        <div class="schedule__text">
-          <span class="section-tag section-tag--white">Графік роботи</span>
-          <h2>Ми відкриті <span class="highlight--white">для вас</span></h2>
-          <div class="schedule__times">
-            <div class="schedule__time">
-              <i class="fas fa-calendar-day"></i>
-              <div>
-                <strong>Понеділок</strong>
-                <span>12:00 – 22:00</span>
-              </div>
-            </div>
-            <div class="schedule__time">
-              <i class="fas fa-calendar-week"></i>
-              <div>
-                <strong>Вівторок – Неділя</strong>
-                <span>10:00 – 22:00</span>
-              </div>
-            </div>
-            <div class="schedule__time">
-              <i class="fas fa-moon"></i>
-              <div>
-                <strong>Сауна</strong>
-                <span>Цілодобово 24/7</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="schedule__top">
+        <span class="section-tag section-tag--white">Графік роботи</span>
+        <h2>Ми відкриті <span class="highlight--white">для вас</span></h2>
+      </div>
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Зона / Послуга</th>
+              <th>Понеділок</th>
+              <th>Вт – Нд</th>
+              <th>Примітка</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="scht-zone">🏊 Аквапарк</td>
+              <td><span class="scht-time">12:00 – 22:00</span></td>
+              <td><span class="scht-time">10:00 – 22:00</span></td>
+              <td>Останній вхід за 1 год до закриття</td>
+            </tr>
+            <tr>
+              <td class="scht-zone">💪 Фітнес-центр</td>
+              <td><span class="scht-time">07:30 – 22:00</span></td>
+              <td><span class="scht-time">10:00 – 22:00</span></td>
+              <td>Пн–Пт з 07:30. Персональні тренування</td>
+            </tr>
+            <tr>
+              <td class="scht-zone">🧖 SPA-центр</td>
+              <td><span class="scht-time">12:00 – 22:00</span></td>
+              <td><span class="scht-time">10:00 – 22:00</span></td>
+              <td>Масаж — запис обов'язковий</td>
+            </tr>
+            <tr>
+              <td class="scht-zone">🏨 Готель</td>
+              <td colspan="2" style="text-align:center"><span class="scht-time scht-time--24">Цілодобово</span></td>
+              <td>Заїзд з 14:00 / Виїзд до 12:00</td>
+            </tr>
+            <tr>
+              <td class="scht-zone">🍽️ Ресторан</td>
+              <td><span class="scht-time">12:00 – 22:00</span></td>
+              <td><span class="scht-time">10:00 – 22:00</span></td>
+              <td>Банкети до 65 осіб — під замовлення</td>
+            </tr>
+            <tr>
+              <td class="scht-zone">🏋️ Групові заняття</td>
+              <td><span class="scht-time">08:00 – 20:00</span></td>
+              <td><span class="scht-time">08:00 – 20:00</span></td>
+              <td>CrossFit, Zumba, Yoga, Body Fit, Пілатес</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="schedule__booking-row">
         <div class="schedule__booking">
           <h3>Швидке бронювання</h3>
           <p>Забронюй прямо зараз і отримай підтвердження за хвилину</p>
-          <button class="btn btn--white btn--lg" onclick="openBooking()">
-            <i class="fas fa-calendar-plus"></i> Забронювати онлайн
-          </button>
+          <button class="btn btn--white btn--lg" onclick="openBooking()">📅 Забронювати онлайн</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACTS ========== -->
+  <!-- CONTACTS -->
   <section class="contacts" id="contacts">
     <div class="container">
       <div class="section-header">
@@ -627,17 +721,14 @@
       </div>
       <div class="contacts__grid">
         <div class="contact-block">
-          <div class="contact-block__icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-block__icon">📍</div>
           <h4>Адреса</h4>
-          <p>м. Тернопіль,<br/>вул. Гайова, 29<br/>(Жовта Церква)</p>
+          <p>Україна, 46006,<br>м. Тернопіль,<br>вул. Гайова, 29</p>
         </div>
         <div class="contact-block">
-          <div class="contact-block__icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-block__icon">📞</div>
           <h4>Телефони</h4>
-          <p>
-            <a href="tel:+380675556888">(067) 555-68-88</a><br/>
-            <a href="tel:+380352528282">(0352) 52-82-82</a>
-          </p>
+          <p><a href="tel:+380675556888">(067) 555-68-88</a><br><a href="tel:+380352528282">(0352) 52-82-82</a></p>
           <div class="contact-block__lines">
             <span>1 — Готель</span>
             <span>2 — Аквапарк / Фітнес</span>
@@ -646,52 +737,66 @@
           </div>
         </div>
         <div class="contact-block">
-          <div class="contact-block__icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-block__icon">🕐</div>
           <h4>Режим роботи</h4>
-          <p>Пн: 12:00–22:00<br/>Вт–Нд: 10:00–22:00<br/>Сауна: 24/7</p>
+          <p>Пн: 12:00–22:00<br>Вт–Нд: 10:00–22:00<br>Фітнес (Пн): 07:30–22:00<br>Готель: 24/7</p>
         </div>
         <div class="contact-block">
-          <div class="contact-block__icon"><i class="fas fa-share-alt"></i></div>
+          <div class="contact-block__icon">📱</div>
           <h4>Соціальні мережі</h4>
-          <div class="social-links">
-            <a href="https://www.instagram.com/alligator.te.ua/" target="_blank" class="social-link social-link--instagram">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </div>
+          <a href="https://www.instagram.com/alligator.te.ua/" target="_blank" rel="noopener" class="instagram-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @alligator.te.ua
+          </a>
         </div>
       </div>
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.0!2d25.5948!3d49.5535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDMzJzEyLjYiTiAyNcKwMzUnNDEuMyJF!5e0!3m2!1suk!2sua!4v1"
-          width="100%" height="380" style="border:0;border-radius:20px;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div class="map-placeholder">
+        <div class="map-embed-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.1!2d25.5944!3d49.5535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473033b6a46aed53%3A0x1!2z0LLRg9C7LiDQk9Cw0LnQvtCy0LAsIDI5LCDQotC10YDQvdC-0L_RltC70YwsINGC0LXRgNC90L7Qv9GW0LvRjNGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA0NjAwNg!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua"
+            width="100%"
+            height="400"
+            style="border:0;border-radius:16px;display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Аліґатор на Google Maps">
+          </iframe>
+        </div>
+        <div style="text-align:center;margin-top:16px">
+          <a href="https://maps.google.com/?q=Україна,+46006,+Тернопіль,+вул.+Гайова,+29" target="_blank" rel="noopener" class="btn btn--outline">📍 Відкрити на Google Maps ↗</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <a href="#" class="logo logo--white">
           <div class="logo__icon">
-            <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 32 Q15 8 30 12 Q45 16 55 8" stroke="#1a9b3c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-              <path d="M5 32 Q10 36 18 34 Q22 33 24 30" stroke="#1a9b3c" stroke-width="3" stroke-linecap="round" fill="none"/>
-              <circle cx="8" cy="30" r="2.5" fill="#1a9b3c"/>
-              <path d="M30 12 Q32 6 38 5" stroke="#0d7a2e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path d="M38 5 Q42 4 44 7 Q43 10 40 9 Q36 8 38 5Z" fill="#1a9b3c"/>
+            <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="33">
+              <ellipse cx="38" cy="32" rx="22" ry="12" fill="#1a9b3c"/>
+              <ellipse cx="60" cy="28" rx="12" ry="8" fill="#1a9b3c"/>
+              <ellipse cx="72" cy="30" rx="6" ry="4" fill="#0d7a2e"/>
+              <circle cx="63" cy="24" r="2.5" fill="#fff"/>
+              <circle cx="63" cy="24" r="1.2" fill="#0a0a0a"/>
+              <path d="M16 32 Q6 30 4 24 Q6 20 10 25 Q12 28 16 32Z" fill="#0d7a2e"/>
+              <path d="M28 42 L24 50 L26 50 L30 43" fill="#1a9b3c"/>
+              <path d="M40 43 L38 52 L40 52 L42 43" fill="#1a9b3c"/>
+              <path d="M48 41 L46 49 L48 49 L50 41" fill="#1a9b3c"/>
             </svg>
           </div>
           <div class="logo__text">
-            <span class="logo__name">АЛІГАТОР</span>
+            <span class="logo__name">АЛІҐАТОР</span>
             <span class="logo__sub">Оздоровчий комплекс</span>
           </div>
         </a>
         <p>Тернопільський оздоровчий комплекс — унікальне місце для відпочинку, спорту та оздоровлення всієї родини.</p>
-        <a href="https://www.instagram.com/alligator.te.ua/" target="_blank" class="social-link social-link--instagram">
-          <i class="fab fa-instagram"></i> @alligator.te.ua
+        <a href="https://www.instagram.com/alligator.te.ua/" target="_blank" rel="noopener" class="instagram-link instagram-link--footer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @alligator.te.ua
         </a>
       </div>
       <div class="footer__links">
@@ -699,7 +804,7 @@
         <ul>
           <li><a href="#aquapark">Аквапарк</a></li>
           <li><a href="#fitness">Фітнес центр</a></li>
-          <li><a href="#spa">SPA & Сауна</a></li>
+          <li><a href="#spa">SPA &amp; Сауна</a></li>
           <li><a href="#hotel">Готель</a></li>
           <li><a href="#restaurant">Ресторан</a></li>
         </ul>
@@ -715,53 +820,46 @@
       </div>
       <div class="footer__booking">
         <h4>Бронювання онлайн</h4>
-        <p>Забронюй відвідування будь-якої послуги комплексу прямо зараз</p>
-        <button class="btn btn--primary" onclick="openBooking()">Забронювати</button>
+        <p>Забронюй відвідування будь-якої послуги прямо зараз</p>
+        <button class="btn btn--primary" onclick="openBooking()">📅 Забронювати</button>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <p>© 2026 Тернопільський оздоровчий комплекс «Алігатор». вул. Гайова, 29, Тернопіль</p>
+        <p>© 2026 Тернопільський оздоровчий комплекс «Аліґатор». Україна, 46006, Тернопіль, вул. Гайова, 29</p>
       </div>
     </div>
   </footer>
 
-  <!-- ========== BOOKING MODAL ========== -->
+  <!-- BOOKING MODAL -->
   <div class="modal-overlay" id="bookingModal" onclick="closeBookingOnOverlay(event)">
     <div class="modal">
-      <button class="modal__close" onclick="closeBooking()"><i class="fas fa-times"></i></button>
+      <button class="modal__close" onclick="closeBooking()" aria-label="Закрити">✕</button>
       <div class="modal__header">
         <div class="modal__logo">
-          <svg viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="27">
-            <path d="M5 32 Q15 8 30 12 Q45 16 55 8" stroke="#1a9b3c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-            <path d="M5 32 Q10 36 18 34 Q22 33 24 30" stroke="#1a9b3c" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <circle cx="8" cy="30" r="2.5" fill="#1a9b3c"/>
-            <path d="M30 12 Q32 6 38 5" stroke="#0d7a2e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M38 5 Q42 4 44 7 Q43 10 40 9 Q36 8 38 5Z" fill="#1a9b3c"/>
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="36">
+            <ellipse cx="38" cy="32" rx="22" ry="12" fill="#1a9b3c"/>
+            <ellipse cx="60" cy="28" rx="12" ry="8" fill="#1a9b3c"/>
+            <ellipse cx="72" cy="30" rx="6" ry="4" fill="#0d7a2e"/>
+            <circle cx="63" cy="24" r="2.5" fill="#fff"/>
+            <circle cx="63" cy="24" r="1.2" fill="#0a0a0a"/>
+            <path d="M16 32 Q6 30 4 24 Q6 20 10 25 Q12 28 16 32Z" fill="#0d7a2e"/>
+            <path d="M28 42 L24 50 L26 50 L30 43" fill="#1a9b3c"/>
+            <path d="M40 43 L38 52 L40 52 L42 43" fill="#1a9b3c"/>
           </svg>
         </div>
         <h2>Онлайн бронювання</h2>
-        <p>Алігатор — Оздоровчий комплекс Тернопіль</p>
+        <p>Аліґатор — Оздоровчий комплекс Тернопіль</p>
       </div>
       <form class="booking-form" id="bookingForm" onsubmit="submitBooking(event)">
         <div class="form-group">
           <label>Послуга</label>
           <div class="service-selector" id="serviceSelector">
-            <div class="service-opt active" data-value="aquapark" onclick="selectService(this)">
-              <span>🌊</span> Аквапарк
-            </div>
-            <div class="service-opt" data-value="fitness" onclick="selectService(this)">
-              <span>💪</span> Фітнес
-            </div>
-            <div class="service-opt" data-value="spa" onclick="selectService(this)">
-              <span>🧖</span> SPA / Сауна
-            </div>
-            <div class="service-opt" data-value="hotel" onclick="selectService(this)">
-              <span>🏨</span> Готель
-            </div>
-            <div class="service-opt" data-value="restaurant" onclick="selectService(this)">
-              <span>🍽️</span> Ресторан
-            </div>
+            <div class="service-opt active" data-value="aquapark" onclick="selectService(this)"><span>🌊</span>Аквапарк</div>
+            <div class="service-opt" data-value="fitness" onclick="selectService(this)"><span>💪</span>Фітнес</div>
+            <div class="service-opt" data-value="spa" onclick="selectService(this)"><span>🧖</span>SPA/Сауна</div>
+            <div class="service-opt" data-value="hotel" onclick="selectService(this)"><span>🏨</span>Готель</div>
+            <div class="service-opt" data-value="restaurant" onclick="selectService(this)"><span>🍽️</span>Ресторан</div>
           </div>
         </div>
         <div class="form-row">
@@ -804,32 +902,24 @@
         </div>
         <div class="form-check">
           <input type="checkbox" id="bookConsent" required />
-          <label for="bookConsent">Я погоджуюсь з обробкою персональних даних відповідно до чинного законодавства України</label>
+          <label for="bookConsent">Я погоджуюсь з обробкою персональних даних відповідно до законодавства України</label>
         </div>
-        <button type="submit" class="btn btn--primary btn--full">
-          <i class="fas fa-calendar-check"></i> Підтвердити бронювання
-        </button>
-        <p class="form-note">
-          <i class="fas fa-info-circle"></i>
-          Після відправки форми наш менеджер зв'яжеться з вами протягом 30 хвилин для підтвердження.
-        </p>
+        <button type="submit" class="btn btn--primary btn--full">📅 Підтвердити бронювання</button>
+        <p class="form-note">ℹ️ Після відправки форми наш менеджер зв'яжеться з вами протягом 30 хвилин.</p>
       </form>
-      <div class="booking-success" id="bookingSuccess" style="display:none;">
+      <div class="booking-success" id="bookingSuccess" style="display:none">
         <div class="success-icon">✅</div>
         <h3>Заявку отримано!</h3>
-        <p>Дякуємо за бронювання! Наш менеджер зв'яжеться з вами найближчим часом для підтвердження.</p>
+        <p>Дякуємо за бронювання! Наш менеджер зв'яжеться з вами найближчим часом.</p>
         <p class="success-contact">Або телефонуйте: <a href="tel:+380675556888">(067) 555-68-88</a></p>
         <button class="btn btn--primary" onclick="closeBooking()">Закрити</button>
       </div>
     </div>
   </div>
 
-  <!-- Floating CTA -->
+  <!-- FLOATING CTA -->
   <div class="float-cta" id="floatCta">
-    <button class="float-cta__btn" onclick="openBooking()">
-      <i class="fas fa-calendar-plus"></i>
-      <span>Забронювати</span>
-    </button>
+    <button class="float-cta__btn" onclick="openBooking()">📅 Забронювати</button>
   </div>
 
   <script src="script.js"></script>
