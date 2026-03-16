@@ -612,3 +612,216 @@ button { cursor: pointer; font-family: inherit; }
 ::-webkit-scrollbar-track { background: var(--gray-100); }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
 ::selection { background: var(--green-light); color: var(--green-dark); }
+
+/* ---- AQUAPARK PRICE TABLE ---- */
+.aqua-price-table-wrap { grid-column: 1 / -1; }
+.aqua-price-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.aqua-price-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: .88rem;
+}
+.aqua-price-table thead tr:first-child th {
+  background: #2d4a3a;
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 14px 10px;
+  text-align: center;
+}
+.aqua-price-table thead tr:first-child th.apt-label {
+  font-size: .8rem;
+  min-width: 130px;
+}
+.aqua-price-table .apt-sub {
+  background: #3d6b52;
+  color: rgba(255,255,255,.85);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 8px 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+.aqua-price-table tbody tr { background: #fff; }
+.aqua-price-table tbody tr:nth-child(even) { background: #f0f7f3; }
+.aqua-price-table tbody tr.apt-row--featured { background: #e8f7ed; font-weight: 700; }
+.aqua-price-table tbody td {
+  padding: 13px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e5ede9;
+  color: var(--gray-800);
+}
+.aqua-price-table tbody td.apt-name {
+  text-align: left;
+  font-weight: 700;
+  color: var(--gray-800);
+  padding-left: 16px;
+  white-space: nowrap;
+}
+.aqua-price-note {
+  margin-top: 14px;
+  font-size: .8rem;
+  color: var(--gray-600);
+  text-align: center;
+}
+
+/* ---- SCHEDULE TABLE ---- */
+.schedule__top { text-align: center; margin-bottom: 36px; }
+.schedule__top h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; color: #fff; margin-bottom: 0; }
+.schedule-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 36px; }
+.schedule-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+}
+.schedule-table thead tr th {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 14px 16px;
+  text-align: left;
+}
+.schedule-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  transition: background .2s;
+}
+.schedule-table tbody tr:hover { background: rgba(255,255,255,.07); }
+.schedule-table tbody td {
+  padding: 14px 16px;
+  color: rgba(255,255,255,.92);
+  font-size: .9rem;
+  vertical-align: middle;
+}
+.scht-zone { font-weight: 700; white-space: nowrap; }
+.scht-time {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: .82rem;
+  white-space: nowrap;
+}
+.scht-time--24 { background: rgba(255,255,255,.3); }
+.schedule__booking-row { display: flex; justify-content: center; }
+.schedule__booking {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: var(--radius-xl);
+  padding: 36px 48px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  max-width: 480px;
+  width: 100%;
+}
+.schedule__booking h3 { color: #fff; font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.schedule__booking p { color: rgba(255,255,255,.8); margin-bottom: 20px; font-size: 1rem; }
+
+/* ---- MAP EMBED ---- */
+.map-embed-wrap { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
+
+/* ---- MEMBERSHIPS ---- */
+.memberships {
+  padding: 80px 0;
+  background: var(--gray-100);
+}
+.memberships__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.membership-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border: 2px solid var(--gray-200);
+  position: relative;
+  transition: box-shadow .25s, transform .25s;
+}
+.membership-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.membership-card--featured {
+  border-color: var(--green);
+  box-shadow: var(--shadow-md);
+}
+.membership-card__top-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.membership-card__tier {
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+}
+.membership-card__name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gray-800);
+  margin-bottom: 14px;
+}
+.membership-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.membership-card__amount {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--gray-800);
+  line-height: 1;
+}
+.membership-card__currency { font-size: 1.4rem; font-weight: 700; color: var(--gray-800); }
+.membership-card__period { font-size: .95rem; color: var(--gray-600); }
+.membership-card__desc { font-size: .85rem; color: var(--gray-600); margin-bottom: 20px; }
+.membership-card__divider { border: none; border-top: 1px solid var(--gray-200); margin-bottom: 20px; }
+.membership-card__features {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.membership-card__features li { font-size: .9rem; color: var(--gray-800); }
+.membership-card__btn { width: 100%; justify-content: center; }
+
+@media (max-width: 900px) {
+  .memberships__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .schedule-table thead tr th,
+  .schedule-table tbody td { padding: 10px 12px; font-size: .82rem; }
+}
+@media (max-width: 768px) {
+  .aqua-price-table { font-size: .8rem; }
+  .aqua-price-table thead tr:first-child th,
+  .aqua-price-table .apt-sub { padding: 8px 6px; }
+}
