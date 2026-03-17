@@ -6,13 +6,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --green:       #1a9b3c;
-  --green-dark:  #0d7a2e;
-  --green-light: #e8f7ed;
-  --green-mid:   #2db84e;
+  --green:       #1a5c3c;
+  --green-dark:  #0e3824;
+  --green-light: #edf7f2;
+  --green-mid:   #2a8056;
   --black:       #0a0a0a;
-  --gray-100:    #f8f9fa;
-  --gray-200:    #f0f2f5;
+  --gray-100:    #f6f8f7;
+  --gray-200:    #eaeeec;
   --gray-400:    #9ca3af;
   --gray-600:    #6b7280;
   --gray-800:    #1f2937;
@@ -51,7 +51,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ---- HELPERS ---- */
 .highlight       { color: var(--green); }
-.highlight--white{ color: #7fffaa; }
+.highlight--white{ color: #a3e4bc; }
 
 .section-tag {
   display: inline-flex;
@@ -94,7 +94,7 @@ button { cursor: pointer; font-family: inherit; }
   font-family: var(--font);
 }
 .btn--primary { background: var(--green); color: #fff; border-color: var(--green); }
-.btn--primary:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,155,60,.3); }
+.btn--primary:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,92,60,.28); }
 .btn--outline { background: transparent; color: var(--green); border-color: var(--green); }
 .btn--outline:hover { background: var(--green); color: #fff; transform: translateY(-2px); }
 .btn--white { background: #fff; color: var(--green); border-color: #fff; }
@@ -209,7 +209,7 @@ button { cursor: pointer; font-family: inherit; }
 .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--green); }
 .service-card__img { height: 140px; display: flex; align-items: center; justify-content: center; }
 .service-card__img--aqua       { background: linear-gradient(135deg,#0ea5e9,#0369a1); }
-.service-card__img--fitness    { background: linear-gradient(135deg,#1a9b3c,#0d7a2e); }
+.service-card__img--fitness    { background: linear-gradient(135deg,#1a5c3c,#0e3824); }
 .service-card__img--spa        { background: linear-gradient(135deg,#8b5cf6,#6d28d9); }
 .service-card__img--hotel      { background: linear-gradient(135deg,#f59e0b,#d97706); }
 .service-card__img--restaurant { background: linear-gradient(135deg,#f97316,#ea580c); }
@@ -258,7 +258,7 @@ button { cursor: pointer; font-family: inherit; }
   text-align: center; color: #fff; box-shadow: var(--shadow-xl);
 }
 .visual-box--blue   { background: linear-gradient(135deg,#0ea5e9,#0369a1); }
-.visual-box--green  { background: linear-gradient(135deg,#1a9b3c,#0d7a2e); }
+.visual-box--green  { background: linear-gradient(135deg,#1a5c3c,#0e3824); }
 .visual-box--purple { background: linear-gradient(135deg,#8b5cf6,#6d28d9); }
 .visual-box--gold   { background: linear-gradient(135deg,#f59e0b,#d97706); }
 .visual-box--orange { background: linear-gradient(135deg,#f97316,#ea580c); }
@@ -499,7 +499,7 @@ button { cursor: pointer; font-family: inherit; }
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none; border-color: var(--green); background: var(--white);
-  box-shadow: 0 0 0 3px rgba(26,155,60,.12);
+  box-shadow: 0 0 0 3px rgba(26,92,60,.12);
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
@@ -556,7 +556,7 @@ button { cursor: pointer; font-family: inherit; }
   background: var(--green); color: #fff; border: none;
   border-radius: var(--radius-full); padding: 14px 24px;
   font-size: .95rem; font-weight: 700; font-family: var(--font);
-  box-shadow: 0 8px 32px rgba(26,155,60,.4); transition: all .25s;
+  box-shadow: 0 8px 32px rgba(26,92,60,.36); transition: all .25s;
 }
 .float-cta__btn:hover { background: var(--green-dark); transform: translateY(-3px); }
 
@@ -625,7 +625,7 @@ button { cursor: pointer; font-family: inherit; }
   font-size: .88rem;
 }
 .aqua-price-table thead tr:first-child th {
-  background: #2d4a3a;
+  background: #163d28;
   color: #fff;
   font-weight: 700;
   font-size: .85rem;
@@ -639,7 +639,7 @@ button { cursor: pointer; font-family: inherit; }
   min-width: 130px;
 }
 .aqua-price-table .apt-sub {
-  background: #3d6b52;
+  background: #1a5c3c;
   color: rgba(255,255,255,.85);
   font-size: .75rem;
   font-weight: 600;
@@ -648,8 +648,8 @@ button { cursor: pointer; font-family: inherit; }
   white-space: nowrap;
 }
 .aqua-price-table tbody tr { background: #fff; }
-.aqua-price-table tbody tr:nth-child(even) { background: #f0f7f3; }
-.aqua-price-table tbody tr.apt-row--featured { background: #e8f7ed; font-weight: 700; }
+.aqua-price-table tbody tr:nth-child(even) { background: #f2f7f5; }
+.aqua-price-table tbody tr.apt-row--featured { background: #edf7f2; font-weight: 700; }
 .aqua-price-table tbody td {
   padding: 13px 10px;
   text-align: center;
